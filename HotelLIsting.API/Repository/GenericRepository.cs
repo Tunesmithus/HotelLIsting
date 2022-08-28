@@ -23,6 +23,7 @@ namespace HotelLIsting.API.Repository
         {
             var entity = await GetAsync(id);
             _context.Set<T>().Remove(entity);
+            _context.SaveChangesAsync();
         }
 
         public async Task<bool> Exists(int id)
